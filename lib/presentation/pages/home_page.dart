@@ -3,6 +3,7 @@
 import 'package:custom_scroll_view/models/post_model.dart';
 import 'package:custom_scroll_view/models/user_model.dart';
 import 'package:custom_scroll_view/presentation/components/build_posts.dart';
+import 'package:custom_scroll_view/presentation/components/my_drawer.dart';
 import 'package:custom_scroll_view/presentation/pages/saved_page.dart';
 import 'package:custom_scroll_view/presentation/widgets/post_widget.dart';
 import 'package:custom_scroll_view/providers/post_provider.dart';
@@ -35,27 +36,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text("H O M E"),
       ),
-      endDrawer: Drawer(
-        child: Column(
-          children: [
-            DrawerHeader(
-                child: Icon(
-              Icons.favorite,
-              color: Colors.red,
-            )),
-            ListTile(
-              leading: Icon(Icons.favorite),
-              onTap: () {
-                Navigator.pop(context);
-
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => SavedPage()));
-              },
-              title: Text("Saved"),
-            )
-          ],
-        ),
-      ),
+      endDrawer: MyDrawer(),
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {

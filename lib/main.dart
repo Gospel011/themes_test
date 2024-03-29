@@ -1,4 +1,5 @@
 import 'package:custom_scroll_view/providers/post_provider.dart';
+import 'package:custom_scroll_view/providers/settings_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './presentation/pages/home_page.dart';
@@ -12,11 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<PostsProvider>(
-      create: (context) => PostsProvider(),
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: MyHomePage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<PostsProvider>(create: (context) => PostsProvider()),
+        ChangeNotifierProvider<SettingsProvider>(create: (context) => SettingsProvider()),
+      ],
+      child: Consumer<SettingsProvider>(
+        builder: (context, provider, _) => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: provider.theme,
+          home: const MyHomePage(),
+        ),
       ),
     );
   }
