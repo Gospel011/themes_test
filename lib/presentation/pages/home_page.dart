@@ -31,7 +31,7 @@ class MyHomePage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext rootContext) {
     return Scaffold(
       appBar: AppBar(
         title: Text("H O M E"),
@@ -41,7 +41,7 @@ class MyHomePage extends StatelessWidget {
           child: Icon(Icons.add),
           onPressed: () {
             showDialog(
-                context: context,
+                context: rootContext,
                 useRootNavigator: false,
                 builder: (context) => AlertDialog(
                       title: Text("Create Post"),
@@ -62,7 +62,7 @@ class MyHomePage extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                     print("Post pressed");
-                                    createPost(context.read<PostsProvider>());
+                                    createPost(rootContext.read<PostsProvider>());
                                   },
                                   child: Text("Post"));
                             }

@@ -30,24 +30,24 @@ class MyDrawer extends StatelessWidget {
             color: Colors.red,
           )),
           ListTile(
-            leading: const Icon(Icons.favorite),
+            leading: Icon(Icons.favorite, color: Theme.of(context).iconTheme.color),
             onTap: () {
               Navigator.pop(context);
 
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const SavedPage()));
             },
-            title: const Text("Saved"),
+            title: Text("Saved", style: Theme.of(context).textTheme.bodyMedium,),
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: Icon(Icons.settings, color: Theme.of(context).iconTheme.color),
             onTap: () {
               Navigator.pop(context);
 
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const SettingsPage()));
             },
-            title: const Text("Settings"),
+            title: Text("Settings", style: Theme.of(context).textTheme.bodyMedium,),
           )
         ],
       ),
