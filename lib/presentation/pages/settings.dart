@@ -1,8 +1,6 @@
-
-
 import 'package:custom_scroll_view/providers/settings_provider.dart';
 import 'package:custom_scroll_view/utils/app_constants.dart';
-import 'package:custom_scroll_view/utils/enums.dart';
+import 'package:custom_scroll_view/utils/Enums/theme_options.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,12 +21,18 @@ class SettingsPage extends StatelessWidget {
                     ? AppConstants.mainColorDark
                     : AppConstants.mainColorLight,
               ),
-              title: Text("Set app theme", style: Theme.of(context).textTheme.bodyMedium,),
+              title: Text(
+                "Set app theme",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
               trailing: PopupMenuButton(
                   itemBuilder: (context) => [
                         PopupMenuItem(
-                          child: const Text("Dark mode",),
+                          child: const Text(
+                            "Dark mode",
+                          ),
                           onTap: () {
+                            print("setting theme to dark");
                             context.read<SettingsProvider>().theme =
                                 ThemeOptions.dark;
                           },
@@ -36,6 +40,7 @@ class SettingsPage extends StatelessWidget {
                         PopupMenuItem(
                           child: const Text("Light mode"),
                           onTap: () {
+                            print("setting theme to light");
                             context.read<SettingsProvider>().theme =
                                 ThemeOptions.light;
                           },

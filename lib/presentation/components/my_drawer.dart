@@ -2,7 +2,7 @@ import 'package:custom_scroll_view/presentation/pages/saved_page.dart';
 import 'package:custom_scroll_view/presentation/pages/settings.dart';
 import 'package:custom_scroll_view/providers/settings_provider.dart';
 import 'package:custom_scroll_view/utils/app_constants.dart';
-import 'package:custom_scroll_view/utils/enums.dart';
+import 'package:custom_scroll_view/utils/Enums/theme_options.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
